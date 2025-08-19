@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harbour's Club - Crypto Trading Signals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #041A2F;
+            color: #F1ECE5;
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(90deg, #B68F39 0%, #E8D9A8 50%, #B68F39 100%);
+        }
+        
+        .signal-card {
+            background: rgba(241, 236, 229, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(182, 143, 57, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .signal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(182, 143, 57, 0.1);
+            border-color: rgba(182, 143, 57, 0.5);
+        }
+        
+        .stats-item {
+            background: rgba(241, 236, 229, 0.03);
+            border-left: 3px solid #B68F39;
+        }
+        
+        .btn-telegram {
+            background: #0088CC;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-telegram:hover {
+            background: #006B9E;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #B68F39;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .hero-image {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-[#041A2F]/90 backdrop-blur-sm border-b border-[#B68F39]/10">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="https://i.ibb.co/fd0m8QqM/8a48fd38-f493-4681-aa0c-dc888ea05b15.png" alt="Harbour's Club Logo" class="h-12 w-12 rounded-full">
+                    <div class="ml-3">
+                        <h1 class="text-xl font-bold text-[#F1ECE5]">Harbour's Club</h1>
+                        <p class="text-xs text-[#B68F39]">Where smart capital drops anchor</p>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-[#F1ECE5] hover:text-[#B68F39]">Home</a>
+                    <a href="#signals" class="nav-link text-[#F1ECE5] hover:text-[#B68F39]">Signals</a>
+                    <a href="#performance" class="nav-link text-[#F1ECE5] hover:text-[#B68F39]">Performance</a>
+                    <a href="#about" class="nav-link text-[#F1ECE5] hover:text-[#B68F39]">About</a>
+                </div>
+                
+                <div class="flex items-center">
+                    <a href="https://t.me/harboursclub" target="_blank" class="btn-telegram flex items-center px-4 py-2 rounded-full text-white font-medium">
+                        <i class="fab fa-telegram mr-2"></i> Join Telegram
+                    </a>
+                    <button class="md:hidden ml-4 text-[#F1ECE5]" id="mobile-menu-button">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div class="md:hidden hidden py-4" id="mobile-menu">
+                <div class="flex flex-col space-y-3">
+                    <a href="#home" class="text-[#F1ECE5] hover:text-[#B68F39] px-3 py-2 rounded">Home</a>
+                    <a href="#signals" class="text-[#F1ECE5] hover:text-[#B68F39] px-3 py-2 rounded">Signals</a>
+                    <a href="#performance" class="text-[#F1ECE5] hover:text-[#B68F39] px-3 py-2 rounded">Performance</a>
+                    <a href="#about" class="text-[#F1ECE5] hover:text-[#B68F39] px-3 py-2 rounded">About</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-[#F1ECE5]">
+                        Professional <span class="text-[#B68F39]">Crypto Signals</span> For Smart Traders
+                    </h1>
+                    <p class="text-lg text-[#F1ECE5]/80 mb-8">
+                        Join our free Telegram channel and receive high-quality trading signals with an average win rate of 85%. We provide clear entry points, stop losses, and take profit targets.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="https://t.me/harboursclub" target="_blank" class="btn-telegram flex items-center justify-center px-8 py-4 rounded-full text-white font-semibold text-lg">
+                            <i class="fab fa-telegram mr-3 text-xl"></i> Join Free Telegram Group
+                        </a>
+                    </div>
+                    <div class="mt-8 flex space-x-6">
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 rounded-full bg-green-500 mr-2"></div>
+                            <span class="text-sm text-[#F1ECE5]/80">85% Win Rate</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 rounded-full bg-[#B68F39] mr-2"></div>
+                            <span class="text-sm text-[#F1ECE5]/80">24/7 Support</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 rounded-full bg-blue-500 mr-2"></div>
+                            <span class="text-sm text-[#F1ECE5]/80">Free Signals</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center hero-image">
+                    <img src="https://i.ibb.co/fd0m8QqM/8a48fd38-f493-4681-aa0c-dc888ea05b15.png" alt="Crypto Trading Illustration" class="w-full max-w-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 gold-gradient">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="stats-item p-6 rounded-lg">
+                    <div class="text-4xl font-bold text-[#041A2F] mb-2">85%</div>
+                    <div class="text-lg text-[#041A2F] font-medium">Win Rate</div>
+                    <p class="text-[#041A2F]/80 mt-2">Consistent performance across all market conditions</p>
+                </div>
+                <div class="stats-item p-6 rounded-lg">
+                    <div class="text-4xl font-bold text-[#041A2F] mb-2">24/7</div>
+                    <div class="text-lg text-[#041A2F] font-medium">Market Coverage</div>
+                    <p class="text-[#041A2F]/80 mt-2">We monitor all markets around the clock</p>
+                </div>
+                <div class="stats-item p-6 rounded-lg">
+                    <div class="text-4xl font-bold text-[#041A2F] mb-2">100%</div>
+                    <div class="text-lg text-[#041A2F] font-medium">Free Signals</div>
+                    <p class="text-[#041A2F]/80 mt-2">No hidden fees, just quality signals</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signals Section -->
+    <section id="signals" class="py-20 bg-[#041A2F]">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#F1ECE5] mb-4">Our <span class="text-[#B68F39]">Trading Signals</span></h2>
+                <p class="text-lg text-[#F1ECE5]/80 max-w-2xl mx-auto">
+                    We provide clear, actionable signals with detailed entry points, stop losses, and multiple take profit targets.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Signal Card 1 -->
+                <div class="signal-card p-6 rounded-xl">
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="flex items-center">
+                            <img src="https://res.coinpaper.com/coinpaper/bitcoin_btc_logo_62c59b827e.png" alt="BTC" class="h-8 w-8 mr-3">
+                            <span class="font-medium text-[#F1ECE5]">BTC/USDT</span>
+                        </div>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">LONG</span>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="text-sm text-[#F1ECE5]/70">Entry Zone</label>
+                            <div class="font-medium text-[#F1ECE5]">$113,500 - $114,000</div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-sm text-[#F1ECE5]/70">Stop Loss</label>
+                                <div class="font-medium text-[#F1ECE5]">$111,900</div>
+                            </div>
+                            <div>
+                                <label class="text-sm text-[#F1ECE5]/70">Leverage</label>
+                                <div class="font-medium text-[#F1ECE5]">10x</div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-sm text-[#F1ECE5]/70">Take Profit Targets</label>
+                            <div class="space-y-2 mt-2">
+                                <div class="flex justify-between">
+                                    <span class="text-[#F1ECE5]/70">TP1</span>
+                                    <span class="font-medium text-[#F1ECE5]">$115,200</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-[#F1ECE5]/70">TP2</span>
+                                    <span class="font-medium text-[#F1ECE5]">$116,800</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-[#F1ECE5]/70">TP3</span>
+                                    <span class="font-medium text-[#F1ECE5]">$118,500</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Signal Card 2 -->
+                <div class="signal-card p-6 rounded-xl">
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="flex items-center">
+                            <img src="https://res.coinpaper.com/coinpaper/ethereum_eth_logo_e69b1c2368.png" alt="ETH" class="h-8 w-8 mr-3">
+                            <span class="font-medium text-[#F1ECE5]">ETH/USDT</span>
+                        </div>
+                        <span class="px-3 py-1 bg-red-500/20 text-red-400 rounded-full text-sm">SHORT</span>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="text-sm text-[#F1ECE5]/70">Entry Zone</label>
+                            <div class="font-medium text-[#F1ECE5]">$2,820 - $2,840</div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-sm text-[#F1ECE5]/70">Stop Loss</label>
+                                <div class="font-medium text-[#F1ECE5]">$2,780</div>
+                            </div>
+                            <div>
+                                <label class="text-sm text-[#F1ECE5]/70">Leverage</label>
+                                <div class="font-medium text-[#F1ECE5]">20x</div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-sm text-[#F1ECE5]/70">Take Profit Targets</label>
+                            <div class="space-y-2 mt-2">
+                                <div class="flex justify-between">
+                                    <span class="text-[#F1ECE5]/70">TP1</span>
+                                    <span class="font-medium text-[#F1ECE5]">$2,980</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-[#F1ECE5]/70">TP2</span>
+                                    <span class="font-medium text-[#F1ECE5]">$3,220</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-[#F1ECE5]/70">TP3</span>
+                                    <span class="font-medium text-[#F1ECE5]">$3,550</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Signal Card 3 -->
+                <div class="signal-card p-6 rounded-xl">
+                    <div class="flex justify-between items-center mb-4">
+                        <div class="flex items-center">
+                            <img src="https://res.coinpaper.com/coinpaper/solana_sol_logo_32f9962968.png" alt="SOL" class="h-8 w-8 mr-3">
+                            <span class="font-medium text-[#F1ECE5]">SOL/USDT</span>
+                        </div>
+                        <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">LONG</span>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="text-sm text-[#F1ECE5]/70">Entry Zone</label>
+                            <div class="font-medium text-[#F1ECE5]">$162.5 - $163.2</div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-sm text-[#F1ECE5]/70">Stop Loss</label>
+                                <div class="font-medium text-[#F1ECE5]">$160.8</div>
+                            </div>
+                            <div>
+                                <label class="text-sm text-[#F1ECE5]/70">Leverage</label>
+                                <div class="font-medium text-[#F1ECE5]">8x</div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-sm text-[#F1ECE5]/70">Take Profit Targets</label>
+                            <div class="space-y-2 mt-2">
+                                <div class="flex justify-between">
+                                    <span class="text-[#F1ECE5]/70">TP1</span>
+                                    <span class="font-medium text-[#F1ECE5]">$170.5</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-[#F1ECE5]/70">TP2</span>
+                                    <span class="font-medium text-[#F1ECE5]">$172.5</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-[#F1ECE5]/70">TP3</span>
+                                    <span class="font-medium text-[#F1ECE5]">$184.7</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://t.me/harboursclub" target="_blank" class="btn-telegram inline-flex items-center px-8 py-3 rounded-full text-white font-semibold text-lg">
+                    <i class="fab fa-telegram mr-3 text-xl"></i> Get Real-Time Signals
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Section -->
+    <section id="performance" class="py-20 bg-[#041A2F]/90">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#F1ECE5] mb-4">Our <span class="text-[#B68F39]">Performance</span></h2>
+                <p class="text-lg text-[#F1ECE5]/80 max-w-2xl mx-auto">
+                    Transparent results that speak for themselves. Here's a snapshot of our recent performance.
+                </p>
+            </div>
+            
+            <div class="bg-[#041A2F] border border-[#B68F39]/20 rounded-xl p-6 max-w-4xl mx-auto">
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="border-b border-[#B68F39]/20">
+                                <th class="text-left py-4 px-4 text-[#B68F39] font-medium">Pair</th>
+                                <th class="text-left py-4 px-4 text-[#B68F39] font-medium">Type</th>
+                                <th class="text-left py-4 px-4 text-[#B68F39] font-medium">Entry</th>
+                                <th class="text-left py-4 px-4 text-[#B68F39] font-medium">Exit</th>
+                                <th class="text-left py-4 px-4 text-[#B68F39] font-medium">Result</th>
+                                <th class="text-left py-4 px-4 text-[#B68F39] font-medium">ROI</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-[#B68F39]/10">
+                                <td class="py-4 px-4 text-[#F1ECE5]">BTC/USDT</td>
+                                <td class="py-4 px-4"><span class="px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">LONG</span></td>
+                                <td class="py-4 px-4 text-[#F1ECE5]">$115,650</td>
+                                <td class="py-4 px-4 text-[#F1ECE5]">$118,200</td>
+                                <td class="py-4 px-4 text-green-400">Win</td>
+                                <td class="py-4 px-4 text-green-400">+2.2%</td>
+                            </tr>
+                            <tr class="border-b border-[#B68F39]/10">
+                                <td class="py-4 px-4 text-[#F1ECE5]">ETH/USDT</td>
+                                <td class="py-4 px-4"><span class="px-2 py-1 bg-red-500/20 text-red-400 rounded-full text-xs">SHORT</span></td>
+                                <td class="py-4 px-4 text-[#F1ECE5]">$4,330</td>
+                                <td class="py-4 px-4 text-[#F1ECE5]">$3,750</td>
+                                <td class="py-4 px-4 text-green-400">Win</td>
+                                <td class="py-4 px-4 text-green-400">+13.4%</td>
+                            </tr>
+                            <tr class="border-b border-[#B68F39]/10">
+                                <td class="py-4 px-4 text-[#F1ECE5]">SOL/USDT</td>
+                                <td class="py-4 px-4"><span class="px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">LONG</span></td>
+                                <td class="py-4 px-4 text-[#F1ECE5]">$172.8</td>
+                                <td class="py-4 px-4 text-[#F1ECE5]">$194.3</td>
+                                <td class="py-4 px-4 text-green-400">Win</td>
+                                <td class="py-4 px-4 text-green-400">+12.5%</td>
+                            </tr>
+                            <tr class="border-b border-[#B68F39]/10">
+                                <td class="py-4 px-4 text-[#F1ECE5]">AVAX/USDT</td>
+                                <td class="py-4 px-4"><span class="px-2 py-1 bg-red-500/20 text-red-400 rounded-full text-xs">SHORT</span></td>
+                                <td class="py-4 px-4 text-[#F1ECE5]">$44.2</td>
+                                <td class="py-4 px-4 text-[#F1ECE5]">$32.5</td>
+                                <td class="py-4 px-4 text-green-400">Win</td>
+                                <td class="py-4 px-4 text-green-400">+26.4%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-4 px-4 text-[#F1ECE5]">LINK/USDT</td>
+                                <td class="py-4 px-4"><span class="px-2 py-1 bg-green-500/20 text-green-400 rounded-full text-xs">LONG</span></td>
+                                <td class="py-4 px-4 text-[#F1ECE5]">$22.45</td>
+                                <td class="py-4 px-4 text-[#F1ECE5]">$21.20</td>
+                                <td class="py-4 px-4 text-red-400">Loss</td>
+                                <td class="py-4 px-4 text-red-400">-5.5%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-8 p-4 bg-[#041A2F] border border-[#B68F39]/20 rounded-lg">
+                    <div class="flex flex-col md:flex-row justify-between items-center">
+                        <div class="mb-4 md:mb-0">
+                            <h4 class="text-lg font-medium text-[#F1ECE5]">Recent Performance</h4>
+                            <p class="text-sm text-[#F1ECE5]/70">Last 30 days</p>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                            <div>
+                                <div class="text-2xl font-bold text-[#B68F39]">85%</div>
+                                <div class="text-sm text-[#F1ECE5]/70">Win Rate</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-green-400">32</div>
+                                <div class="text-sm text-[#F1ECE5]/70">Winning Trades</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-red-400">6</div>
+                                <div class="text-sm text-[#F1ECE5]/70">Losing Trades</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-bold text-green-400">+48.7%</div>
+                                <div class="text-sm text-[#F1ECE5]/70">Total ROI</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#F1ECE5] mb-6">About <span class="text-[#B68F39]">Harbour's Club</span></h2>
+                    <p class="text-lg text-[#F1ECE5]/80 mb-6">
+                        Harbour's Club is a community of professional traders dedicated to providing high-quality crypto trading signals. Our mission is to help traders navigate the volatile crypto markets with confidence.
+                    </p>
+                    <p class="text-lg text-[#F1ECE5]/80 mb-6">
+                        With years of combined experience in technical analysis and risk management, we've developed a proven strategy that delivers consistent results.
+                    </p>
+                    <p class="text-lg text-[#F1ECE5]/80 mb-8">
+                        Our signals are completely free - we believe in building trust through transparency and performance before offering any premium services.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://t.me/harboursclub" target="_blank" class="btn-telegram flex items-center px-6 py-3 rounded-full text-white font-medium">
+                            <i class="fab fa-telegram mr-2"></i> Join Now
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2">
+                    <div class="bg-[#041A2F] border border-[#B68F39]/20 rounded-xl p-8">
+                        <h3 class="text-2xl font-bold text-[#F1ECE5] mb-6 text-center">Why Choose Us?</h3>
+                        <div class="space-y-6">
+                            <div class="flex">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="h-8 w-8 rounded-full bg-[#B68F39]/20 flex items-center justify-center">
+                                        <i class="fas fa-check text-[#B68F39]"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-[#F1ECE5]">Professional Analysis</h4>
+                                    <p class="text-[#F1ECE5]/80 mt-1">Our signals are based on thorough technical and fundamental analysis.</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="h-8 w-8 rounded-full bg-[#B68F39]/20 flex items-center justify-center">
+                                        <i class="fas fa-check text-[#B68F39]"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-[#F1ECE5]">Risk Management</h4>
+                                    <p class="text-[#F1ECE5]/80 mt-1">Every signal includes carefully calculated stop losses to protect your capital.</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="h-8 w-8 rounded-full bg-[#B68F39]/20 flex items-center justify-center">
+                                        <i class="fas fa-check text-[#B68F39]"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-[#F1ECE5]">24/7 Support</h4>
+                                    <p class="text-[#F1ECE5]/80 mt-1">Our team is always available to answer questions and provide guidance.</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0 mt-1">
+                                    <div class="h-8 w-8 rounded-full bg-[#B68F39]/20 flex items-center justify-center">
+                                        <i class="fas fa-check text-[#B68F39]"></i>
+                                    </div>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-medium text-[#F1ECE5]">Transparent Results</h4>
+                                    <p class="text-[#F1ECE5]/80 mt-1">We share all our trades - wins and losses - so you can verify our performance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 gold-gradient">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#041A2F] mb-6">Ready To Start Trading Smarter?</h2>
+            <p class="text-xl text-[#041A2F]/90 mb-8 max-w-2xl mx-auto">
+                Join our free Telegram channel today and start receiving professional crypto trading signals with an 85% win rate.
+            </p>
+            <a href="https://t.me/harboursclub" target="_blank" class="inline-flex items-center px-8 py-4 bg-[#041A2F] rounded-full text-[#F1ECE5] font-semibold text-lg hover:bg-[#041A2F]/90 transition">
+                <i class="fab fa-telegram mr-3 text-xl"></i> Join Harbour's Club Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#041A2F] border-t border-[#B68F39]/10 py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center">
+                        <img src="https://i.ibb.co/fd0m8QqM/8a48fd38-f493-4681-aa0c-dc888ea05b15.png" alt="Harbour's Club Logo" class="h-10 w-10 rounded-full">
+                        <div class="ml-3">
+                            <h3 class="text-lg font-bold text-[#F1ECE5]">Harbour's Club</h3>
+                            <p class="text-sm text-[#B68F39]">Where smart capital drops anchor</p>
+                        </div>
+                    </div>
+                    <p class="text-[#F1ECE5]/70 mt-4 max-w-xs">
+                        Professional crypto trading signals with an 85% win rate. Join our free Telegram channel today.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold text-[#F1ECE5] mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-[#F1ECE5]/70 hover:text-[#B68F39] transition">Home</a></li>
+                            <li><a href="#signals" class="text-[#F1ECE5]/70 hover:text-[#B68F39] transition">Signals</a></li>
+                            <li><a href="#performance" class="text-[#F1ECE5]/70 hover:text-[#B68F39] transition">Performance</a></li>
+                            <li><a href="#about" class="text-[#F1ECE5]/70 hover:text-[#B68F39] transition">About</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-[#F1ECE5] mb-4">Resources</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="text-[#F1ECE5]/70 hover:text-[#B68F39] transition">Trading Guide</a></li>
+                            <li><a href="#" class="text-[#F1ECE5]/70 hover:text-[#B68F39] transition">Risk Management</a></li>
+                            <li><a href="#" class="text-[#F1ECE5]/70 hover:text-[#B68F39] transition">FAQ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold text-[#F1ECE5] mb-4">Connect</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://t.me/harboursclub" target="_blank" class="h-10 w-10 rounded-full bg-[#0088CC]/20 flex items-center justify-center text-[#0088CC] hover:bg-[#0088CC]/30 transition">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                            <a href="#" target="_blank" class="h-10 w-10 rounded-full bg-[#1DA1F2]/20 flex items-center justify-center text-[#1DA1F2] hover:bg-[#1DA1F2]/30 transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" target="_blank" class="h-10 w-10 rounded-full bg-[#E1306C]/20 flex items-center justify-center text-[#E1306C] hover:bg-[#E1306C]/30 transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" target="_blank" class="h-10 w-10 rounded-full bg-[#000000]/20 flex items-center justify-center text-[#000000] hover:bg-[#000000]/30 transition">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-[#B68F39]/10 mt-12 pt-8 text-center text-[#F1ECE5]/70">
+                <p>© 2025 Harbour's Club. All rights reserved.</p>
+                <p class="mt-2 text-sm">Disclaimer: Trading cryptocurrencies involves risk. Our signals are for informational purposes only and should not be considered financial advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
